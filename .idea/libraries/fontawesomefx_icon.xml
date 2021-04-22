@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="fontawesomefx-icon">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Temp/lib/fontawesomefx-weathericons-2.0.10-5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Temp/lib/fontawesomefx-fontawesome-4.7.0-5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
