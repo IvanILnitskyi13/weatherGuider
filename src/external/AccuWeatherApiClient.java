@@ -5,7 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-import external.fiveDayForecast.DailyForecasts;
+import external.forecasts.fiveDayForecast.DailyForecasts;
+import external.forecasts.twelveHoursForecast.HourForecast;
+import external.forecasts.twelveHoursForecast.TwelveHoursForecast;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -23,10 +25,10 @@ public class AccuWeatherApiClient {
     public DailyForecasts getFiveDayForecast(String city) {
         Request rq = new Request.Builder().url("http://dataservice.accuweather.com/forecasts/v1/daily/5day/" +
                 getCityKey(city) + "?apikey=NGPsQTr60QsmgW1WGK5uY1ZFvpsFRrx1&language=en-us&details=true&metric=true").build();
-        try{
+        try {
             Response response = okHttpClient.newCall(rq).execute();
 
-            if(response.isSuccessful()){
+            if (response.isSuccessful()) {
                 String json = response.body().string();
 
                 int startIndex = json.indexOf("\"Headline\"");
@@ -43,18 +45,21 @@ public class AccuWeatherApiClient {
         return null;
     }
 
-    public void getTwelveHoursForecast(String city) {
+    public TwelveHoursForecast getTwelveHoursForecast(String city) {
         Request rq = new Request.Builder().url("http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/" +
                 getCityKey(city) + "?apikey=NGPsQTr60QsmgW1WGK5uY1ZFvpsFRrx1&language=en-us&details=true&metric=true").build();
-        try{
+        try {
             Response response = okHttpClient.newCall(rq).execute();
 
-            if(response.isSuccessful()){
-                String json = response.body().string();
+            if (response.isSuccessful()) {
+                String jsonTable = response.body().string();
+                String jsonToDeserialize = "{ \"twelveHoursForecast\" : ".concat(jsonTable).concat("}");
+                return  getGson().fromJson(jsonToDeserialize, TwelveHoursForecast.class);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     private int getCityKey(String city) {

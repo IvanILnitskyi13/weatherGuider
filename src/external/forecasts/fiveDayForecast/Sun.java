@@ -1,4 +1,4 @@
-package external.fiveDayForecast;
+package external.forecasts.fiveDayForecast;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
-public class Moon {
+public class Sun {
     @SerializedName("Rise")
     private LocalDateTime rise;
     @SerializedName("Set")

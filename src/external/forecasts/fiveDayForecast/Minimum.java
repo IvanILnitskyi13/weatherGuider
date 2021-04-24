@@ -1,4 +1,4 @@
-package external.fiveDayForecast;
+package external.forecasts.fiveDayForecast;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
