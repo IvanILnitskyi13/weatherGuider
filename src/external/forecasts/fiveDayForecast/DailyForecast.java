@@ -25,4 +25,10 @@ public class DailyForecast {
 
     @SerializedName("RealFeelTemperature")
     private Temperature realFeelTemperature;
+
+    @SerializedName("Day")
+    private Day day;
+
+    @SerializedName("Night")
+    private Night night;
 }

@@ -148,8 +148,8 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <WeatherIconView fx:id="fourDayAfterIcon" fill="WHITE" glyphName="FORECAST_IO_SLEET" layoutX="630.0" layoutY="275.0" size="50" textAlignment="CENTER" wrappingWidth="76.99996948242188" />
-      <WeatherIconView fx:id="fiveDayAfterIcon" fill="WHITE" layoutX="630.0" layoutY="375.0" size="50" textAlignment="CENTER" wrappingWidth="76.99996948242188" />
+      <WeatherIconView fx:id="threeDayAfterIcon" fill="WHITE" glyphName="FORECAST_IO_SLEET" layoutX="630.0" layoutY="275.0" size="50" textAlignment="CENTER" wrappingWidth="76.99996948242188" />
+      <WeatherIconView fx:id="fourDayAfterIcon" fill="WHITE" layoutX="630.0" layoutY="375.0" size="50" textAlignment="CENTER" wrappingWidth="76.99996948242188" />
       <WeatherIconView fill="WHITE" glyphName="CELSIUS" layoutX="760.0" layoutY="350.0" size="25" text="" wrappingWidth="24.794921875">
          <font>
             <Font size="14.0" />
@@ -165,7 +165,7 @@
             <Font size="14.0" />
          </font>
       </WeatherIconView>
-      <Text fx:id="foreDayAfterMinTemp" fill="WHITE" layoutX="735.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22">
+      <Text fx:id="fourDayAfterMinTemp" fill="WHITE" layoutX="735.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22">
          <font>
             <Font size="16.0" />
          </font>
@@ -186,7 +186,7 @@
          </font>
       </Text>
       <WeatherIconView fx:id="oneDayAfterIcon" fill="WHITE" glyphName="DAY_SUNNY" layoutX="630.0" layoutY="75.0" size="50" textAlignment="CENTER" wrappingWidth="76.99996948242188" />
-      <Text fx:id="oneDeyAfterMaxTemp" fill="WHITE" layoutX="735.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25" textAlignment="RIGHT">
+      <Text fx:id="oneDayAfterMaxTemp" fill="WHITE" layoutX="735.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25" textAlignment="RIGHT">
          <font>
             <Font size="16.0" />
          </font>

@@ -5,8 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-import external.forecasts.fiveDayForecast.DailyForecasts;
-import external.forecasts.twelveHoursForecast.HourForecast;
+import external.forecasts.fiveDayForecast.FiveDayForecast;
 import external.forecasts.twelveHoursForecast.TwelveHoursForecast;
 import org.json.JSONObject;
 
@@ -22,7 +21,7 @@ public class AccuWeatherApiClient {
 
     }
 
-    public DailyForecasts getFiveDayForecast(String city) {
+    public FiveDayForecast getFiveDayForecast(String city) {
         Request rq = new Request.Builder().url("http://dataservice.accuweather.com/forecasts/v1/daily/5day/" +
                 getCityKey(city) + "?apikey=NGPsQTr60QsmgW1WGK5uY1ZFvpsFRrx1&language=en-us&details=true&metric=true").build();
         try {
@@ -37,7 +36,7 @@ public class AccuWeatherApiClient {
 
                 builder.delete(startIndex, stopIndex);
 
-                return getGson().fromJson(builder.toString(), DailyForecasts.class);
+                return getGson().fromJson(builder.toString(), FiveDayForecast.class);
             }
         } catch (IOException e) {
             e.printStackTrace();

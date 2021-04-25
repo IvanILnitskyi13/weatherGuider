@@ -1,10 +1,26 @@
 package controllers;
 
+import com.squareup.okhttp.OkHttpClient;
 import de.jensd.fx.glyphs.weathericons.WeatherIconView;
+import external.AccuWeatherApiClient;
+import external.forecasts.Icons;
+import external.forecasts.fiveDayForecast.FiveDayForecast;
+import external.forecasts.twelveHoursForecast.TwelveHoursForecast;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.TextStyle;
+import java.time.temporal.ChronoUnit;
+import java.util.Locale;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Controller {
 
@@ -60,16 +76,16 @@ public class Controller {
     private Text fourDayAfterDayOfWeek;
 
     @FXML
-    private WeatherIconView fourDayAfterIcon;
+    private WeatherIconView threeDayAfterIcon;
 
     @FXML
-    private WeatherIconView fiveDayAfterIcon;
+    private WeatherIconView fourDayAfterIcon;
 
     @FXML
     private Text fourDayAfterMaxTemp;
 
     @FXML
-    private Text foreDayAfterMinTemp;
+    private Text fourDayAfterMinTemp;
 
     @FXML
     private Button getData;
@@ -81,7 +97,7 @@ public class Controller {
     private WeatherIconView oneDayAfterIcon;
 
     @FXML
-    private Text oneDeyAfterMaxTemp;
+    private Text oneDayAfterMaxTemp;
 
     @FXML
     private Text oneDayAfterMinTemp;
@@ -139,9 +155,86 @@ public class Controller {
 
     @FXML
     void initialize() {
-        getData.setOnAction(actionEvent -> {
 
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            timeNow.setText(LocalTime.now().truncatedTo(ChronoUnit.SECONDS).toString());
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
+
+        getData.setOnAction(actionEvent -> {
+            AccuWeatherApiClient accuWeatherApiClient = new AccuWeatherApiClient(new OkHttpClient());
+            String cityName = city.getText();
+
+            FiveDayForecast fiveDayForecast = accuWeatherApiClient.getFiveDayForecast(cityName);
+            TwelveHoursForecast twelveHoursForecast = accuWeatherApiClient.getTwelveHoursForecast(cityName);
+
+            todayDayOfWeek.setText(LocalDate.now().getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+
+            oneDayAfterDayOfWeek.setText(LocalDate.now().plusDays(1).getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+            oneDayAfterIcon.setGlyphName(Icons.getGlyphName(fiveDayForecast.getDailyForecasts().get(1).getDay().getIconNumber()));
+            oneDayAfterMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(1).getTemperature().getMaximum().toString());
+            oneDayAfterMinTemp.setText(fiveDayForecast.getDailyForecasts().get(1).getTemperature().getMinimum().toString());
+
+            twoDayAfterDayOfWeek.setText(LocalDate.now().plusDays(2).getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+            twoDayAfterIcon.setGlyphName(Icons.getGlyphName(fiveDayForecast.getDailyForecasts().get(2).getDay().getIconNumber()));
+            twoDayAfterMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(2).getTemperature().getMaximum().toString());
+            twoDayAfterMinTemp.setText(fiveDayForecast.getDailyForecasts().get(2).getTemperature().getMinimum().toString());
+
+            threeDayAfterDayOfWeek.setText(LocalDate.now().plusDays(3).getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+            threeDayAfterIcon.setGlyphName(Icons.getGlyphName(fiveDayForecast.getDailyForecasts().get(3).getDay().getIconNumber()));
+            threeDayAfterMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(3).getTemperature().getMaximum().toString());
+            threeDayAfterMinTemp.setText(fiveDayForecast.getDailyForecasts().get(3).getTemperature().getMinimum().toString());
+
+            fourDayAfterDayOfWeek.setText(LocalDate.now().plusDays(4).getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+            fourDayAfterIcon.setGlyphName(Icons.getGlyphName(fiveDayForecast.getDailyForecasts().get(3).getDay().getIconNumber()));
+            fourDayAfterMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(4).getTemperature().getMaximum().toString());
+            fourDayAfterMinTemp.setText(fiveDayForecast.getDailyForecasts().get(4).getTemperature().getMinimum().toString());
+
+            moonRise.setText(fiveDayForecast.getDailyForecasts().get(0).getMoon().getRise().toLocalTime().toString());
+            sunRise.setText(fiveDayForecast.getDailyForecasts().get(0).getSun().getRise().toLocalTime().toString());
+            mainMinTemp.setText(fiveDayForecast.getDailyForecasts().get(0).getTemperature().getMinimum().getValue().toString());
+            mainMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(0).getTemperature().getMaximum().getValue().toString());
+
+            AtomicInteger startIndex = new AtomicInteger();
+            setHoursForecast(twelveHoursForecast, startIndex.get());
+
+
+            buttonNext.setOnAction(actionEventNext -> {
+                if (startIndex.get() < 8){
+                    startIndex.set(startIndex.get() + 1);
+                    setHoursForecast(twelveHoursForecast, startIndex.get());
+                }
+            });
+
+            buttonBack.setOnAction(actionEventBack -> {
+                if (startIndex.get() != 0) {
+                    startIndex.set(startIndex.get() - 1);
+                    setHoursForecast(twelveHoursForecast, startIndex.get());
+                }
+            });
         });
+
+    }
+
+    private void setHoursForecast(TwelveHoursForecast twelveHoursForecast, int startIndex) {
+        timeOne.setText(twelveHoursForecast.getTwelveHoursForecast().get(startIndex).getDateTime().toLocalTime().toString());
+        timeOneIcon.setGlyphName(Icons.getGlyphName(twelveHoursForecast.getTwelveHoursForecast().get(startIndex).getWeatherIcon()));
+        timeOneTemp.setText(twelveHoursForecast.getTwelveHoursForecast().get(startIndex).getTemperature().getTemperature().toString());
+
+        timeTwo.setText(twelveHoursForecast.getTwelveHoursForecast().get(startIndex + 1).getDateTime().toLocalTime().toString());
+        timeTwoIcon.setGlyphName(Icons.getGlyphName(twelveHoursForecast.getTwelveHoursForecast().get(startIndex + 1).getWeatherIcon()));
+        timeTwoTemp.setText(twelveHoursForecast.getTwelveHoursForecast().get(startIndex + 1).getTemperature().getTemperature().toString());
+
+        timeThree.setText(twelveHoursForecast.getTwelveHoursForecast().get(startIndex + 2).getDateTime().toLocalTime().toString());
+        timeThreeIcon.setGlyphName(Icons.getGlyphName(twelveHoursForecast.getTwelveHoursForecast().get(startIndex + 2).getWeatherIcon()));
+        timeThreeTemp.setText(twelveHoursForecast.getTwelveHoursForecast().get(startIndex + 2).getTemperature().getTemperature().toString());
+
+        timeFour.setText(twelveHoursForecast.getTwelveHoursForecast().get(startIndex + 3).getDateTime().toLocalTime().toString());
+        timeFourIcon.setGlyphName(Icons.getGlyphName(twelveHoursForecast.getTwelveHoursForecast().get(startIndex + 3).getWeatherIcon()));
+        timeFourTemp.setText(twelveHoursForecast.getTwelveHoursForecast().get(startIndex + 3).getTemperature().getTemperature().toString());
 
     }
 }

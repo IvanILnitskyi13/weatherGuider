@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class HourForecast {
 
     @SerializedName("DateTime")
-    private LocalDateTime date;
+    private LocalDateTime dateTime;
 
     @SerializedName("WeatherIcon")
     private int weatherIcon;

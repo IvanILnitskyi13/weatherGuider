@@ -58,7 +58,7 @@ public enum Icons {
         return glyphName;
     }
 
-    public String getGlyphName(int iconNumber) {
+    public static String getGlyphName(int iconNumber) {
         for (Icons value : Icons.values()) {
             if (value.getIconNumber() == iconNumber) {
                 return value.glyphName;

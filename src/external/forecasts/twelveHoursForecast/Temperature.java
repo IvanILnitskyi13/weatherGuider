@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-class Temperature {
+public class Temperature {
 
     @SerializedName("Value")
     private Double temperature;
