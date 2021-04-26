@@ -171,27 +171,32 @@ public class Controller {
             FiveDayForecast fiveDayForecast = accuWeatherApiClient.getFiveDayForecast(cityName);
             TwelveHoursForecast twelveHoursForecast = accuWeatherApiClient.getTwelveHoursForecast(cityName);
 
-            todayDayOfWeek.setText(LocalDate.now().getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+            todayDayOfWeek.setText(LocalDate.now().getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH).toUpperCase());
+            todayIcon.setGlyphName(Icons.getGlyphName(fiveDayForecast.getDailyForecasts().get(0).getDay().getIconNumber()));
+            description.setText(fiveDayForecast.getDailyForecasts().get(0).getDay().getShortPhrase());
+            humidity.setText(twelveHoursForecast.getTwelveHoursForecast().get(0).getRelativeHumidity().toString());
+            wind.setText(fiveDayForecast.getDailyForecasts().get(0).getDay().getWind().getSpeed().getValue().toString());
+            temp.setText(twelveHoursForecast.getTwelveHoursForecast().get(0).getTemperature().getTemperature().toString());
 
-            oneDayAfterDayOfWeek.setText(LocalDate.now().plusDays(1).getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+            oneDayAfterDayOfWeek.setText(LocalDate.now().plusDays(1).getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH).toUpperCase());
             oneDayAfterIcon.setGlyphName(Icons.getGlyphName(fiveDayForecast.getDailyForecasts().get(1).getDay().getIconNumber()));
-            oneDayAfterMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(1).getTemperature().getMaximum().toString());
-            oneDayAfterMinTemp.setText(fiveDayForecast.getDailyForecasts().get(1).getTemperature().getMinimum().toString());
+            oneDayAfterMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(1).getTemperature().getMaximum().getValue().toString());
+            oneDayAfterMinTemp.setText(fiveDayForecast.getDailyForecasts().get(1).getTemperature().getMinimum().getValue().toString());
 
-            twoDayAfterDayOfWeek.setText(LocalDate.now().plusDays(2).getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+            twoDayAfterDayOfWeek.setText(LocalDate.now().plusDays(2).getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH).toUpperCase());
             twoDayAfterIcon.setGlyphName(Icons.getGlyphName(fiveDayForecast.getDailyForecasts().get(2).getDay().getIconNumber()));
-            twoDayAfterMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(2).getTemperature().getMaximum().toString());
-            twoDayAfterMinTemp.setText(fiveDayForecast.getDailyForecasts().get(2).getTemperature().getMinimum().toString());
+            twoDayAfterMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(2).getTemperature().getMaximum().getValue().toString());
+            twoDayAfterMinTemp.setText(fiveDayForecast.getDailyForecasts().get(2).getTemperature().getMinimum().getValue().toString());
 
-            threeDayAfterDayOfWeek.setText(LocalDate.now().plusDays(3).getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+            threeDayAfterDayOfWeek.setText(LocalDate.now().plusDays(3).getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH).toUpperCase());
             threeDayAfterIcon.setGlyphName(Icons.getGlyphName(fiveDayForecast.getDailyForecasts().get(3).getDay().getIconNumber()));
-            threeDayAfterMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(3).getTemperature().getMaximum().toString());
-            threeDayAfterMinTemp.setText(fiveDayForecast.getDailyForecasts().get(3).getTemperature().getMinimum().toString());
+            threeDayAfterMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(3).getTemperature().getMaximum().getValue().toString());
+            threeDayAfterMinTemp.setText(fiveDayForecast.getDailyForecasts().get(3).getTemperature().getMinimum().getValue().toString());
 
-            fourDayAfterDayOfWeek.setText(LocalDate.now().plusDays(4).getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+            fourDayAfterDayOfWeek.setText(LocalDate.now().plusDays(4).getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH).toUpperCase());
             fourDayAfterIcon.setGlyphName(Icons.getGlyphName(fiveDayForecast.getDailyForecasts().get(3).getDay().getIconNumber()));
-            fourDayAfterMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(4).getTemperature().getMaximum().toString());
-            fourDayAfterMinTemp.setText(fiveDayForecast.getDailyForecasts().get(4).getTemperature().getMinimum().toString());
+            fourDayAfterMaxTemp.setText(fiveDayForecast.getDailyForecasts().get(4).getTemperature().getMaximum().getValue().toString());
+            fourDayAfterMinTemp.setText(fiveDayForecast.getDailyForecasts().get(4).getTemperature().getMinimum().getValue().toString());
 
             moonRise.setText(fiveDayForecast.getDailyForecasts().get(0).getMoon().getRise().toLocalTime().toString());
             sunRise.setText(fiveDayForecast.getDailyForecasts().get(0).getSun().getRise().toLocalTime().toString());

@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: brown;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
    <children>
-      <TextField fx:id="city" alignment="CENTER" focusTraversable="false" layoutX="27.0" layoutY="12.0" opacity="0.5" prefHeight="40.0" prefWidth="98.0" promptText="cyty">
+      <TextField fx:id="city" alignment="CENTER" focusTraversable="false" layoutX="27.0" layoutY="12.0" opacity="0.5" prefHeight="42.0" prefWidth="122.0" promptText="cyty">
          <font>
             <Font name="System Italic" size="19.0" />
          </font>
@@ -51,22 +51,22 @@
          </font>
       </WeatherIconView>
       <WeatherIconView fill="WHITE" glyphName="WMO4680_00" layoutX="524.0" layoutY="198.0" size="25" />
-      <Text fx:id="mainMinTemp" fill="WHITE" layoutX="460.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="RIGHT" wrappingWidth="32.55615234375">
+      <Text fx:id="mainMinTemp" fill="WHITE" layoutX="460.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="32.55615234375">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fx:id="mainMaxTemp" fill="WHITE" layoutX="466.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="RIGHT" wrappingWidth="24.794921875">
+      <Text fx:id="mainMaxTemp" fill="WHITE" layoutX="466.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="24.794921875">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fx:id="wind" fill="WHITE" layoutX="118.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="38.9 " textAlignment="RIGHT" wrappingWidth="40.0">
+      <Text fx:id="wind" fill="WHITE" layoutX="118.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="40.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="humidity" fill="WHITE" layoutX="120.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="RIGHT" wrappingWidth="32.55615234375">
+      <Text fx:id="humidity" fill="WHITE" layoutX="120.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="32.55615234375">
          <font>
             <Font size="15.0" />
          </font>
@@ -77,7 +77,7 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="temp" fill="WHITE" layoutX="130.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="RIGHT" wrappingWidth="21.70263671875">
+      <Text fx:id="temp" fill="WHITE" layoutX="120.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="32.55615234375">
          <font>
             <Font size="15.0" />
          </font>
@@ -87,7 +87,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fx:id="description" fill="WHITE" layoutX="218.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sunny" textAlignment="CENTER" wrappingWidth="172.0">
+      <Text fx:id="description" fill="WHITE" layoutX="218.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="172.0">
          <font>
             <Font size="15.0" />
          </font>
@@ -103,7 +103,7 @@
          </font>
       </Text>
       <WeatherIconView fx:id="twoDayAfterIcon" fill="WHITE" glyphName="DAY_CLOUDY" layoutX="630.0" layoutY="175.0" size="50" textAlignment="CENTER" wrappingWidth="76.99996948242188" />
-      <Text fx:id="twoDayAfterMaxTemp" fill="WHITE" layoutX="735.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15">
+      <Text fx:id="twoDayAfterMaxTemp" fill="WHITE" layoutX="720.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="32.55615234375">
          <font>
             <Font size="16.0" />
          </font>
@@ -113,7 +113,7 @@
             <Font size="14.0" />
          </font>
       </WeatherIconView>
-      <Text fx:id="twoDayAfterMinTemp" fill="WHITE" layoutX="735.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17">
+      <Text fx:id="twoDayAfterMinTemp" fill="WHITE" layoutX="720.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="32.55615234375">
          <font>
             <Font size="16.0" />
          </font>
@@ -128,7 +128,7 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="threeDayAfterMaxTemp" fill="WHITE" layoutX="735.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18">
+      <Text fx:id="threeDayAfterMaxTemp" fill="WHITE" layoutX="720.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="32.55615234375">
          <font>
             <Font size="16.0" />
          </font>
@@ -138,7 +138,7 @@
             <Font size="14.0" />
          </font>
       </WeatherIconView>
-      <Text fx:id="threeDayAfterMinTemp" fill="WHITE" layoutX="735.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="14">
+      <Text fx:id="threeDayAfterMinTemp" fill="WHITE" layoutX="720.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="32.55615234375">
          <font>
             <Font size="16.0" />
          </font>
@@ -155,7 +155,7 @@
             <Font size="14.0" />
          </font>
       </WeatherIconView>
-      <Text fx:id="fourDayAfterMaxTemp" fill="WHITE" layoutX="735.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25">
+      <Text fx:id="fourDayAfterMaxTemp" fill="WHITE" layoutX="720.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="32.55615234375">
          <font>
             <Font size="16.0" />
          </font>
@@ -165,12 +165,12 @@
             <Font size="14.0" />
          </font>
       </WeatherIconView>
-      <Text fx:id="fourDayAfterMinTemp" fill="WHITE" layoutX="735.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22">
+      <Text fx:id="fourDayAfterMinTemp" fill="WHITE" layoutX="720.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="32.55615234375">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Button fx:id="getData" layoutX="151.0" layoutY="11.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="64.0" text="Find" textAlignment="CENTER">
+      <Button fx:id="getData" layoutX="173.0" layoutY="11.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="64.0" text="Find" textAlignment="CENTER">
          <font>
             <Font size="15.0" />
          </font>
@@ -186,7 +186,7 @@
          </font>
       </Text>
       <WeatherIconView fx:id="oneDayAfterIcon" fill="WHITE" glyphName="DAY_SUNNY" layoutX="630.0" layoutY="75.0" size="50" textAlignment="CENTER" wrappingWidth="76.99996948242188" />
-      <Text fx:id="oneDayAfterMaxTemp" fill="WHITE" layoutX="735.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25" textAlignment="RIGHT">
+      <Text fx:id="oneDayAfterMaxTemp" fill="WHITE" layoutX="714.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="38.2177734375">
          <font>
             <Font size="16.0" />
          </font>
@@ -196,7 +196,7 @@
             <Font size="14.0" />
          </font>
       </WeatherIconView>
-      <Text fx:id="oneDayAfterMinTemp" fill="WHITE" layoutX="735.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22">
+      <Text fx:id="oneDayAfterMinTemp" fill="WHITE" layoutX="720.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="32.55615234375">
          <font>
             <Font size="16.0" />
          </font>
@@ -215,7 +215,7 @@
             <Font size="14.0" />
          </font>
       </WeatherIconView>
-      <Text fx:id="timeOneTemp" fill="WHITE" layoutX="125.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" textAlignment="RIGHT" wrappingWidth="28.369140625">
+      <Text fx:id="timeOneTemp" fill="WHITE" layoutX="125.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="28.369140625">
          <font>
             <Font size="13.0" />
          </font>
@@ -225,7 +225,7 @@
             <Font size="14.0" />
          </font>
       </WeatherIconView>
-      <Text fx:id="timeTwoTemp" fill="WHITE" layoutX="212.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15" textAlignment="RIGHT" wrappingWidth="27.509765625">
+      <Text fx:id="timeTwoTemp" fill="WHITE" layoutX="212.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="27.509765625">
          <font>
             <Font size="13.0" />
          </font>
@@ -235,7 +235,7 @@
             <Font size="14.0" />
          </font>
       </WeatherIconView>
-      <Text fx:id="timeThreeTemp" fill="WHITE" layoutX="292.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" textAlignment="RIGHT" wrappingWidth="32.55615234375">
+      <Text fx:id="timeThreeTemp" fill="WHITE" layoutX="292.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="32.55615234375">
          <font>
             <Font size="13.0" />
          </font>
@@ -245,45 +245,45 @@
             <Font size="14.0" />
          </font>
       </WeatherIconView>
-      <Text fx:id="timeFourTemp" fill="WHITE" layoutX="382.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25" textAlignment="RIGHT" wrappingWidth="32.55615234375">
+      <Text fx:id="timeFourTemp" fill="WHITE" layoutX="382.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="32.55615234375">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
       <FontAwesomeIconView glyphName="ANGLE_DOUBLE_RIGHT" layoutX="488.0" layoutY="337.0" size="20" />
       <FontAwesomeIconView glyphName="ANGLE_DOUBLE_LEFT" layoutX="64.0" layoutY="337.0" size="20" />
-      <Text fx:id="timeOne" fill="WHITE" layoutX="133.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22:00" textAlignment="CENTER" wrappingWidth="47.998046875">
+      <Text fx:id="timeOne" fill="WHITE" layoutX="133.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="47.998046875">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="timeTwo" fill="WHITE" layoutX="223.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="23:00" textAlignment="CENTER" wrappingWidth="40.0">
+      <Text fx:id="timeTwo" fill="WHITE" layoutX="223.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="40.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="timeThree" fill="WHITE" layoutX="307.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" textAlignment="CENTER" wrappingWidth="40.693359375">
+      <Text fx:id="timeThree" fill="WHITE" layoutX="307.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="40.693359375">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="timeFour" fill="WHITE" layoutX="399.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="01:00" textAlignment="CENTER" wrappingWidth="38.2177734375">
+      <Text fx:id="timeFour" fill="WHITE" layoutX="399.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="38.2177734375">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
       <Line endX="202.0" layoutX="290.0" layoutY="262.0" startX="-217.20001220703125" stroke="WHITE" />
-      <Text fx:id="sunRise" fill="WHITE" layoutX="20.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7:32">
+      <Text fx:id="sunRise" fill="WHITE" layoutX="20.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="moonRise" fill="WHITE" layoutX="518.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7:32">
+      <Text fx:id="moonRise" fill="WHITE" layoutX="518.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <WeatherIconView fill="WHITE" glyphName="CELSIUS" layoutX="158.0" layoutY="204.0" size="23">
+      <WeatherIconView fill="WHITE" glyphName="CELSIUS" layoutX="158.0" layoutY="205.0" size="23">
          <font>
             <Font size="14.0" />
          </font>
@@ -298,10 +298,11 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="timeNow" fill="WHITE" layoutX="464.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21:30">
+      <Text fx:id="timeNow" fill="WHITE" layoutX="457.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="84.20004272460938">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
+      <WeatherIconView fill="WHITE" glyphName="TIME_10" layoutX="429.0" layoutY="42.0" size="25" />
    </children>
 </AnchorPane>

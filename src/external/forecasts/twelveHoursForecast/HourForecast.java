@@ -18,4 +18,7 @@ public class HourForecast {
 
     @SerializedName("Temperature")
     private Temperature temperature;
+
+    @SerializedName("RelativeHumidity")
+    private Integer relativeHumidity;
 }

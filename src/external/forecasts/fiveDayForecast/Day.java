@@ -7,8 +7,13 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class Day {
+
     @SerializedName("Icon")
     private int iconNumber;
+
     @SerializedName("ShortPhrase")
     private String shortPhrase;
+
+    @SerializedName("Wind")
+    private Wind wind;
 }
