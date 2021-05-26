@@ -23,7 +23,7 @@ public class AccuWeatherApiClient {
 
     public FiveDayForecast getFiveDayForecast(String city) {
         Request rq = new Request.Builder().url("http://dataservice.accuweather.com/forecasts/v1/daily/5day/" +
-                getCityKey(city) + "?apikey=NGPsQTr60QsmgW1WGK5uY1ZFvpsFRrx1&language=en-us&details=true&metric=true").build();
+                + getCityKey(city) + "?apikey=NGPsQTr60QsmgW1WGK5uY1ZFvpsFRrx1&language=en-us&details=true&metric=true").build();
         try {
             Response response = okHttpClient.newCall(rq).execute();
 
@@ -53,7 +53,7 @@ public class AccuWeatherApiClient {
             if (response.isSuccessful()) {
                 String jsonTable = response.body().string();
                 String jsonToDeserialize = "{ \"twelveHoursForecast\" : ".concat(jsonTable).concat("}");
-                return  getGson().fromJson(jsonToDeserialize, TwelveHoursForecast.class);
+                return getGson().fromJson(jsonToDeserialize, TwelveHoursForecast.class);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -63,8 +63,8 @@ public class AccuWeatherApiClient {
 
     private int getCityKey(String city) {
 
-        Request rq = new Request.Builder().url("http://dataservice.accuweather.com/locations/v1/cities/search" +
-                "?apikey=NGPsQTr60QsmgW1WGK5uY1ZFvpsFRrx1&q=" + city + "&language=en-us").build();
+        Request rq = new Request.Builder().url("http://dataservice.accuweather.com/locations/v1/cities/" +
+                "search?apikey=NGPsQTr60QsmgW1WGK5uY1ZFvpsFRrx1&q=" + city + "&language=en-us&details=false").build();
         try {
             Response response = okHttpClient.newCall(rq).execute();
             if (response.isSuccessful()) {
